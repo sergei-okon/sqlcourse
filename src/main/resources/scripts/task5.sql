@@ -11,3 +11,4 @@ insert into Orders (Id, CustomerId) values ('2', '1');
 
 SELECT Name FROM Customers WHERE Customers.Id not in (SELECT CustomerId FROM  orders GROUP BY CustomerId HAVING COUNT(*) > 0);
 
+SELECT Name FROM orders FULL JOIN Customers on Customers.Id = Orders.CustomerId WHERE CustomerId is null
